@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:online_chat/containers/chat_message.dart';
 import 'package:online_chat/containers/text_composer.dart';
 
 class ChatScreen extends StatefulWidget {
@@ -114,9 +115,7 @@ class _ChatScreenState extends State<ChatScreen> {
                       itemCount: documents.length,
                       reverse: true,
                       itemBuilder: (context, index) {
-                        return ListTile(
-                          title: Text(documents[index].data()['text'])
-                        );
+                        return ChatMessage(documents[index].data(), true);
                       },
                     );
                 }
