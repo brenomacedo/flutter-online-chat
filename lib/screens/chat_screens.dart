@@ -83,7 +83,7 @@ class _ChatScreenState extends State<ChatScreen> {
         _isLoading = true;
       });
 
-      TaskSnapshot task = await FirebaseStorage.instance.ref()
+      TaskSnapshot task = await FirebaseStorage.instance.ref().child(_currentUser.uid)
         .child(DateTime.now().millisecondsSinceEpoch.toString()).putFile(imgFile);
 
 
